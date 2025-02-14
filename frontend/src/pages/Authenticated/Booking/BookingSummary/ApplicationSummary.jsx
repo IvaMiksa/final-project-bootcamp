@@ -18,29 +18,37 @@ const ApplicationSummary = () => {
     const [errorMessage] = useState('');
 
     const handleSubmit = () => {
-        setIsLoading(true)
-        AxiosInstance.post(`property/generate-pdf/${propertyId}/`, {
-            start_date: startdate,
-            end_date: enddate,
-            access_token: "3AAABLblqZhCuJUWzh5jJdcYdy_fgvrrZ_yVbA3aI164NpyzNZuIpYaCNIw2vYcYjGKWsT3IMjzNRN9OxyvIIDWvdzqENeLju"
-        }, {
-            headers: {
-                'Authorization': `Bearer ${accessToken}`
-            }
-        })
-            .then(res => {
-                console.log(res)
-                if (res.status === 200) {
-                    navigate('/application-confirmation');
-                }
-            })
-            .catch(err => {
-                console.log(err)
-            })
-            .finally(() => {
-                setIsLoading(false)
-            })
-    };
+      setIsLoading(true);
+  
+      AxiosInstance.post(`property/generate-pdf/${propertyId}/`, {
+          start_date: startdate,
+          end_date: enddate
+      }, {
+          headers: {
+              'Authorization': `Bearer ${accessToken}`
+          }
+      })
+          .then(res => {
+              console.log(res);
+              if (res.status === 200) {
+                  const { contract_pdf, invoice_pdf } = res.data;
+  
+                  if (contract_pdf && invoice_pdf) {
+                      alert("Your contract and invoice PDFs have been generated and emailed to you.");
+                      navigate('/application-confirmation');
+                  } else {
+                      alert("PDF generation was successful but some files may be missing.");
+                  }
+              }
+          })
+          .catch(err => {
+              console.error("Error generating PDF:", err);
+              alert("An error occurred while generating your contract. Please try again.");
+          })
+          .finally(() => {
+              setIsLoading(false);
+          });
+  };
 
     return (
         <CenteredContainer>
