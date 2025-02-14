@@ -17,11 +17,9 @@ import PasswordResetEmailPage from "../pages/RegistrationLogin/PasswordReset/Pas
 import PasswordResetFormPage from "../pages/RegistrationLogin/PasswordReset/PasswordResetFormPage.jsx";
 import HostDashboard from "../pages/Authenticated/HostDashboard.jsx";
 import useTokenVerification from "../hooks/useTokenVerification.js";
-import AboutUs from "../pages/Public/AboutUs/AboutUs.jsx";
 import SearchResultsPage from "../pages/Public/SearchResultsPage/SearchResultsPage.jsx";
 import AdminDashboard from "../pages/Authenticated/AdminDashboard.jsx";
 import NomadBookingsPage from "../pages/Authenticated/NomadDashboard/NomadBookingsPage.jsx";
-import NomadInfoPage from "../pages/Authenticated/NomadDashboard/NomadInfoPage.jsx";
 import NomadProfilePage from "../pages/Authenticated/NomadDashboard/NomadProfilePage.jsx";
 import NomadAnalyticsPage from "../pages/Authenticated/NomadDashboard/NomadAnalyticsPage.jsx";
 import NomadDashboard from "../pages/Authenticated/NomadDashboard/NomadDashboard.jsx";
@@ -71,7 +69,7 @@ const Router = () => {
 
                     {/* Public routes */}
                     <Route path="/" element={<HomePage/>}/>
-                    <Route path="/about-us" element={<AboutUs/>}/>
+                    {/*<Route path="/about-us" element={<AboutUs/>}/>*/}
                     <Route path="/search-results" element={<SearchResultsPage/>}/>
                     <Route path="/find-a-property" element={<div>Find a Property</div>}/>
                     <Route path="/property/:id" element={<Property/>}/>
@@ -83,7 +81,7 @@ const Router = () => {
                         <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
                         <Route path="/nomad-dashboard" element={<NomadDashboard/>}/>
                         <Route path="/nomad-bookings" element={<NomadBookingsPage/>}/>
-                        <Route path="/nomad-info" element={<NomadInfoPage/>}/>
+                        {/*<Route path="/nomad-info" element={<NomadInfoPage/>}/>*/}
                         <Route path="/nomad-profile" element={<NomadProfilePage/>}/>
                         <Route path="/nomad-analytics" element={<NomadAnalyticsPage/>}/>
                         <Route path="/nomad-favourites" element={<NomadFavouritesPage/>}/>

@@ -16,15 +16,17 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-WEBSITE_URL = "https://nomadly.propulsion-learn.ch/"
+# WEBSITE_URL = "https://nomadly.propulsion-learn.ch/"
+WEBSITE_URL = "http://localhost:8000/"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
+DEBUG = os.environ.get('DJANGO_DEBUG') #, 'True') == 'True'
 
 ALLOWED_HOSTS = [
     '127.0.0.1', '0.0.0.0',
