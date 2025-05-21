@@ -1,4 +1,4 @@
-TODO: rewrite
+App overview: https://academy.constructor.org/blog/full-stack-capstone-projects-full-time-batch-29
 
 🌍 Nomadly -  Your Gateway to Global Living
 
